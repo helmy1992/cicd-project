@@ -19,8 +19,13 @@ pipeline {
 
       stage('build-image') {
           steps {
+            withCredentials([usernamePassword(credentialsId: 'ecr', passwordVariable: 'PASS', usernameVariable: 'USERNAME')]) {
+              sh"""
+                          echo $PASS | docker login --username AWS --password-stdin 860098129225.dkr.ecr.us-east-1.amazonaws.com
+                   """
+      
+                    }
             sh"""
-            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 860098129225.dkr.ecr.us-east-1.amazonaws.com
             docker build -t python-project  ./python
             docker tag python-project 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:1.0
             docker push 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:1.0
