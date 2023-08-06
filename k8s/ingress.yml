@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: multiapp-ingress
+spec:
+  rules:
+  - host: python-app.io  
+    http:
+      paths:
+      - path: python-app
+        pathType: Prefix
+        backend:
+          service:
+            name: python-svc
+            port:
+              name: http
+ spec:             
+   rules:
+   - host: python-app.io  
+     http:
+       paths:
+       - path: stateful.yml
+         pathType: Prefix
+         backend:
+           service:
+             name: mysql-svc
+             port:
+               name: http              
+

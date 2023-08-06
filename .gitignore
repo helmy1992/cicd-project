@@ -1,0 +1,7 @@
+terraform/install.sh
+terraform/terraform.tfstate
+terraform/.terraform/*
+terraform/inventory.txt
+terraform/key.pem
+terraform/terraform.tfstate.backup
+terraform/.terraform.lock.hcl
