@@ -2,16 +2,21 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: python-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
+  ingressClassName: nginx
   rules:
-  - host: python-app.io  
-    http:
+
+  -http:
       paths:
-      - path: python-app
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: python-svc
             port:
-              name: 5002
+              number: 80
 

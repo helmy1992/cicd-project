@@ -30,7 +30,7 @@ pipeline {
             docker tag python-project 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:latest
             docker push 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:1.0
             aws eks update-kubeconfig --region us-east-1 --name demo
-            export KUBECONFIG=path/to/.kube/config
+            
 
 
             """
@@ -45,12 +45,8 @@ pipeline {
 
               
                 sh """
-                kubectl apply -f ./k8s/project-configmap.yml
-                kubectl apply -f ./k8s/project-secret.yml
-                kubectl  apply -f ./k8s/python-dep.yml
-                kubectl apply -f ./k8s/python-svc.yml
-                kubectl apply -f ./k8s/stateful.yml
-                kubectl apply -f ./k8s/mysql-svc.yml
+                kubectl apply -f k8s/
+               
                 """
                 
               }

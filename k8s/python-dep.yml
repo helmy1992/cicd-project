@@ -1,9 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-app
-  labels:
-    app: python-app
+  name: python-app-dep
+
 spec:
   replicas: 1
   selector:
@@ -40,8 +39,4 @@ spec:
             secretKeyRef:
               name: project-secret
               key: MYSQL_DATABASE_PASSWORD
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: project-secret
-              key: MYSQL_ROOT_PASSWORD
+
