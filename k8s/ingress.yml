@@ -9,8 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-
-  -http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
@@ -19,4 +18,3 @@ spec:
             name: python-svc
             port:
               number: 80
-
