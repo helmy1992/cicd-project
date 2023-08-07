@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:1.0
+        image: 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:latest
         ports:
         - containerPort: 5002
         env:
