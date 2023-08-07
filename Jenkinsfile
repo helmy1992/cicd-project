@@ -28,7 +28,7 @@ pipeline {
             sh"""
             docker build -t python-project  ./python
             docker tag python-project 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:latest
-            docker push 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:1.0
+            docker push 860098129225.dkr.ecr.us-east-1.amazonaws.com/bar:latest
             aws eks update-kubeconfig --region us-east-1 --name demo
             
 
