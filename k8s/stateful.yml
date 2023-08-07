@@ -22,8 +22,7 @@ spec:
         - containerPort: 3306
           
         env:
-       
-     
+
           - name: MYSQL_DATABASE_DB
             valueFrom:
               configMapKeyRef:
